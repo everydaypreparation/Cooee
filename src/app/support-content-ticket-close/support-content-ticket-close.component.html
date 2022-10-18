@@ -1,0 +1,27 @@
+    <div class="card-body">
+        <div class="heading">
+            <h5 class="heading_title mb-0">Close Ticket</h5>
+        </div>
+        <hr>
+        <mat-card>
+            <form [formGroup]="ticketcloseForm">
+                <div class="row">
+                    <div class="col mb-3">
+                        <div class="form-group pb-2">
+                            <label>Remark<span class="required">*</span></label>
+                            <input  type="text" class="form-control" formControlName="remark"
+                                [ngClass]="{ 'is-invalid': submitted && f['remark'].errors }" />
+                            <div *ngIf="submitted && f['remark'].errors" class="invalid-feedback">
+                                <div *ngIf="f['remark'].errors?.['required'] || f['remark'].errors?.['whitespace']">Remark is required</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <button button color="white" class="btn btn-dark px-3"
+                    (click)="submit()">Submit</button>&nbsp;&nbsp;
+                <button button color="white" class="btn btn-dark px-3"
+                    (click)="closeDialog()">Cancel</button>
+            </form>
+        </mat-card>
+    </div>

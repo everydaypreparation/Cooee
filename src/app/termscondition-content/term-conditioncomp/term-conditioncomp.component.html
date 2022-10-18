@@ -1,0 +1,43 @@
+<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+    <div class="breadcrumb-title pe-3">Terms & Conditions Content Management</div>
+    <div class="ps-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0 p-0">
+                <li class="breadcrumb-item"><a href="#" (click)="$event.preventDefault()"><i
+                            class="bx bx-home-alt"></i></a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Terms & Conditions</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<div class="card radius-10">
+    <div class="card-body">
+        <div class="heading">
+            <h5 class="heading_title mb-0">Terms & Conditions</h5>
+        </div>
+        <hr>
+        <mat-card style="height:515px">
+            <form [formGroup]="fileuploadform">
+                <div class="row">
+                    <div class="col">
+                        <div class="pb-2">
+                            <input type="file" accept=".pdf" #inputFile id="demo-file" (change)="onSelectDoc($event)">
+                            <label style="font-weight: bold;">Note:Only Pdf File Allow</label>
+                        </div>
+                    </div>
+                </div>
+                <!-- <button button color="white" (click)="addFile()"
+                    style="background: black;border-radius: 8px;color: #fff;">Submit</button> -->
+                    <button type="button" (click)="addFile()" class="btn btn-dark px-5">Submit</button>
+                    &nbsp;&nbsp;
+                <button class="border-0">
+                    <a class="btn btn-dark px-5 " href="https://secureparcelservice.com:8443/cooeeFiles/terms_and_condition.pdf"
+                        target="_blank" download="DidNumber.csv">
+                        Download Existing File
+                    </a>
+                </button>
+            </form>
+        </mat-card>
+    </div>
+</div>

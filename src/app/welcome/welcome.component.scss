@@ -1,0 +1,788 @@
+
+.dropdown-container {
+    display: none;
+    background-color: #f8f9fa;
+}
+.mat-card:not([class*=mat-elevation-z]) {
+    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+}
+.mat-card:not([class*=mat-elevation-z]) {
+    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+}
+.mat-card {
+    transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+    display: block;
+    position: relative;
+    padding: 16px;
+    border-radius: 0;
+}
+.mat-card {
+    background: #fff;
+    color: rgba(0,0,0,.87);
+}
+
+.mat-focus-indicator {
+    position: relative;
+}
+p.card-text {
+    color: #000;
+}
+h4.card-title{
+     color: #000;
+}
+// .card {
+//     height: 400px;
+// }
+.card-body{
+    padding:1rem 1rem;
+    overflow: auto;
+}
+.controls-top {
+    display: none;
+}
+.input-group>.custom-file{
+    width: 100%;
+    height: calc(2.249999625rem + 2px);
+}
+.input-group .welcome_img {
+    height: auto;
+}
+.welcomescreen-data .btn{
+    background: #000000;
+    border-color: #000000;
+    padding: 11px 15px;
+}
+.custom-file-label{
+    border: 1px solid #000000;
+    border-radius: 0.25rem !important;
+}
+.btn.add_databtn:hover, .btn.add_databtn:focus, .btn.add_databtn:active, .btn.add_databtn.active, .btn.add_databtn:active:focus, .btn.add_databtn:active:hover{
+    outline: none;
+    border: none;
+    background:#000 !important;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    color: #000;
+}
+.welcome-form button.btn:focus, .welcome-form button.btn:hover {
+    outline: none;
+    background:black;
+box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+.showdata{
+    display: block;
+}
+.custom-file-input::-webkit-file-upload-button {
+   display: none;
+}
+
+.custom-file-input::file-selector-button {
+  display: none;
+}
+.custom-file-input {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    opacity: 1;
+    top: 19px;
+    left: 15px; 
+}
+.add_databtn i{
+    font-size: 1.2rem;
+}
+ i.fa {
+    font-size: 1.2rem;
+    
+}
+i.fa-trash-can {
+    color: rgb(0, 0, 0);
+}
+i.fa-pen-to-square {
+    color: #000000;
+}
+h4.chngcolor {
+    color: #000;
+}
+.welcomescreen-data #myModal .modal-header h4.modal-title {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+.break{
+    word-break: break-word;
+}
+.modal {
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: auto;
+}
+.position{
+    text-align: center;
+}
+.required{
+    color: #fd021b;
+    margin-top: 10px;
+    font-size: 12px;
+
+}
+button.close{
+    font-size: 30px !important;
+    border: none;
+    background: none;
+    color: #000000;
+}
+.card .card-body .card-title {
+    color: #000000;
+    text-transform: inherit;
+    font-weight: normal;
+    margin-bottom: 0.75rem;
+    font-size: 20px;
+    font-weight: 600;
+}
+// @media screen and (min-width: 768px) {
+//     body {
+//         margin: calc(var(--header-height) + 1rem) 0 0 0;
+//         padding-left: calc(var(--nav-width) + 2rem);
+//     }
+
+//     .header {
+//         height: 60px;
+//         padding: 0 2rem 0 calc(var(--nav-width) + 2rem);
+//     }
+
+//     .header_img {
+//         width: 40px;
+//         height: 40px;
+//     }
+
+//     .header_img img {
+//         width: 45px;
+//     }
+
+//     .l-navbar {
+//         left: 0;
+//         padding: 0.5rem 0 0 0;
+//     }
+
+//     .welcomescreen-data .show {
+//         width: 100%;
+//     }
+//     .sidebar .navigation li ul li a {
+//         padding: 9px 15px;
+//         border: 0;
+//     }
+//     .sidebar .navigation li ul li i {
+//         font-size: 24px !important;
+//     }
+//     // dropdown
+//     .dropdown select.form-control{
+//         appearance: menulist;
+//     -webkit-appearance: menulist;
+//     }
+//     // font size
+//     .fs-10 {
+//         p,span, .otherClasses {
+//           font-size: 10px;
+//         }
+//       }
+//     .fs-11 {
+//         p,span, .otherClasses {
+//           font-size: 11px;
+//         }
+//       }
+//       .fs-12 {
+//         p,span, .otherClasses {
+//           font-size: 12px;
+//         }
+//       }
+//       .fs-13 {
+//         p,span, .otherClasses {
+//           font-size: 13px;
+//         }
+//       }
+//       .fs-14 {
+//         p,span, .otherClasses {
+//           font-size: 14px;
+//         }
+//     }
+//     .fs-20 {
+//         p,span, .otherClasses {
+//           font-size: 20px;
+//         }
+//     }
+//     .fs-30 {
+//         p,span, .otherClasses {
+//           font-size: 30px;
+//         }
+//     }
+    
+ 
+// }
+// @media screen and (max-width: 768px) {
+//     .welcomescreen-data .mobileheader h2{
+//         text-align: center;
+//     }
+//     .welcomescreen-data .mobileheader{
+//         justify-content: center !important;
+//     }
+// }
+.custom-label {
+    color: #000;
+    margin-top: 15px;
+    font-size: 15px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+
+.textDesign{
+    color:#acb19f;
+    font-size: 11px;
+}
+.custom-file img {
+    border: 1px solid #eee;
+    margin-top: 10px;
+}
+img.card-img-top {
+    display: block;
+    width: auto;
+    height: 257px;
+    margin: 0 auto;
+}
+.welcomescreen-slide{
+ height: 400px;
+}
+.screens .modal-dialog {
+    max-width: 500px;
+    margin: 1.75rem auto;
+}
+.add_popup{
+    max-width: 600px;
+}
+label.upload_btn i.bx {
+    font-size: 35px;
+}
+label.upload_btn{
+    position: absolute;
+    right: 80px;
+    top: 0;
+}
+.screenColor{
+    color: #000000;
+    background-color: #43ea80;
+    padding: 5px;
+    border-radius: 0.25rem 0.25rem 0px 0px;
+    font-weight: 500;
+}
+.delete{
+    background-color: #fd021b !important;
+}
+.card {
+    background: #ffffff;
+    border: 0;
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+    box-shadow: 0 1px 20px 0px rgba(0, 0, 0, 20%);
+}
+textarea.form-control {
+    padding: 0px 10px;
+    
+}.main-content {
+    padding: 10px 0;
+}
+  .header {
+        width: 83%;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    left: 256px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    z-index: var(--z-fixed);
+    transition: .5s;
+    background: #fff;
+    border-bottom: 1px solid rgba(228, 228, 228, 0);
+    z-index: 10;
+    box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%) !important;
+}
+.nav_logo-name img {
+    width: 145px;
+}
+
+// .header_toggle {
+//     color: var(--first-color);
+//     font-size: 1.5rem;
+//     cursor: pointer;
+// }
+
+// .header_img {
+//     width: 35px;
+//     height: 35px;
+//     display: flex;
+//     justify-content: center;
+//     border-radius: 50%;
+//     overflow: hidden;
+// }
+
+// .header_img img {
+//     width: 40px
+// }
+
+// .mat-heading #top-bar{
+//     display: flex;
+//     background: #43ea80;
+//     align-items: center;
+//     padding: 20px;
+//     margin-bottom: 0;
+//     border-radius: 5px 5px 0px 0px;
+// }
+// .mat-heading div#top-bar h4 {
+//   font-size: 20px;
+//   margin: 0;
+//   color: #000;
+//   font-weight: 500;
+// }
+// .welcomescreen-data h2 {
+// color: rgb(0, 0, 0);
+// font-size: 20px;
+// font-weight: 500;
+// }
+// h2.card-heading {
+//     font-family: 'Roboto', sans-serif;
+//     font-size: 20px;
+//     letter-spacing: 0.5px;
+//     color: #721a0c;
+//     background: #eee;
+//     padding: 10px 15px;
+//     border-radius: 3px;
+//     font-weight: 600;
+// }
+
+// .l-navbar {
+//     width: 250px;
+//     height: 100%;
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     bottom: 0;
+//     z-index: 11;
+//     background: #fff;
+//     border-right: 0px solid #e4e4e4;
+//     box-shadow: 0 2px 6px 0 rgb(218 218 253 / 65%), 0 2px 6px 0 rgb(206 206 238 / 54%) !important;
+//     transition: all 0.2s ease-out;
+// }
+
+// .nav {
+//     height: 100%;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-between;
+//     -ms-flex-wrap: nowrap;
+//     flex-wrap: nowrap;
+//     overflow: hidden;
+// }
+// .nav_logo,
+// .nav_link {
+//     display: grid;
+//     grid-template-columns: max-content max-content;
+//     align-items: center;
+//     column-gap: 1rem;
+//     padding: .5rem 0 .5rem 1.5rem;
+// }
+// .nav_link:hover, .nav_link:focus{
+//   background-color: lightgray; 
+// }
+// .nav_logo{
+//   padding: 0 0 0.5rem;
+//     height: 3.25rem;
+//     justify-content: center;
+// }
+
+// hr {
+//     margin-top: 0;
+//     margin-bottom: 0;
+//     border: 0;
+//     border-top: 1px solid rgba(0, 0, 0, 0.12);
+// }
+// .nav_logo-icon {
+//     font-size: 1.25rem;
+//     color: var(--white-color);
+// }
+
+// .nav_logo-name {
+//     color: #fff;
+//     font-family: 'Roboto', sans-serif;
+//     font-size: 22px;
+//     font-weight: 500;
+// }
+// .nav_link {
+//     position: relative;
+//     color: #000000a6;
+//     transition: .3s;
+//     height: 3.25rem;
+//     font-weight: 500;
+//     font-size: 15px;
+//     width: 100%;
+// }
+// .nav_link.active {
+//     color: #000;
+//     background: lightgray !important;
+// }
+// .nav_link:hover {
+//     color: #000;
+//     outline: none;
+//     text-decoration: none;
+// }
+
+// .nav_icon {
+//     font-size: 1.25rem;
+// }
+// button.dropdown-btn {
+//     background: #515545;
+// }
+// .dropdown-container {
+//   display: none;
+//   background-color: #515545;
+// }
+// /* Optional: Style the caret down icon */
+// .fa-caret-down {
+//   float: right;
+//   padding-right: 8px;
+// }
+// .show {
+//     left: 0;
+// }
+
+// .body-pd {
+//     padding-left: calc(var(--nav-width) + 1rem);
+// }
+
+// .active {
+//     color: var(--white-color);
+// }
+// .height-100 {
+//     height: 100vh;
+// }
+// label {
+//     color: #000;
+//     font-size: 15px;
+//     font-family: "Roboto", sans-serif;
+//     font-weight: 600;
+//     letter-spacing: 1px;
+//   }
+// .dropdown-container {
+//     display: none;
+//     background-color: #f8f9fa;
+// }
+// .mat-card:not([class*=mat-elevation-z]) {
+//     box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+// }
+// .mat-card:not([class*=mat-elevation-z]) {
+//     box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+// }
+// .mat-card {
+//     transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+//     display: block;
+//     position: relative;
+//     padding: 16px;
+//     border-radius: 0;
+// }
+// .mat-card {
+//     background: #fff;
+//     color: rgba(0,0,0,.87);
+// }
+
+// .mat-focus-indicator {
+//     position: relative;
+// }
+// p.card-text {
+//     color: #000;
+// }
+// h4.card-title{
+//      color: #000;
+// }
+// // .card {
+// //     height: 400px;
+// // }
+// .card-body{
+//     padding:1rem 1rem;
+//     overflow: auto;
+// }
+// .controls-top {
+//     display: none;
+// }
+// .input-group>.custom-file{
+//     width: 100%;
+//     height: calc(2.249999625rem + 2px);
+// }
+// .input-group .welcome_img {
+//     height: auto;
+// }
+// .welcomescreen-data .btn{
+//     background: #000000;
+//     border-color: #000000;
+//     padding: 11px 15px;
+// }
+// .custom-file-label{
+//     border: 1px solid #000000;
+//     border-radius: 0.25rem !important;
+// }
+// .btn.add_databtn:hover, .btn.add_databtn:focus, .btn.add_databtn:active, .btn.add_databtn.active, .btn.add_databtn:active:focus, .btn.add_databtn:active:hover{
+//     outline: none;
+//     border: none;
+//     background:#000 !important;
+//     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+//     color: #000;
+// }
+// .welcome-form button.btn:focus, .welcome-form button.btn:hover {
+//     outline: none;
+//     background:black;
+// box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+//     border: none;
+// }
+
+// .showdata{
+//     display: block;
+// }
+// .custom-file-input::-webkit-file-upload-button {
+//    display: none;
+// }
+
+// .custom-file-input::file-selector-button {
+//   display: none;
+// }
+// .custom-file-input {
+//     position: relative;
+//     z-index: 2;
+//     width: 100%;
+//     height: auto;
+//     margin: 0;
+//     opacity: 1;
+//     top: 19px;
+//     left: 15px; 
+// }
+// .add_databtn i{
+//     font-size: 1.2rem;
+// }
+//  i.fa {
+//     font-size: 1.2rem;
+    
+// }
+// i.fa-trash-can {
+//     color: rgb(0, 0, 0);
+// }
+// i.fa-pen-to-square {
+//     color: #000000;
+// }
+// h4.chngcolor {
+//     color: #000;
+// }
+// .welcomescreen-data #myModal .modal-header h4.modal-title {
+//     font-size: 24px;
+//     font-weight: 500;
+//     margin-bottom: 0;
+// }
+// .break{
+//     word-break: break-word;
+// }
+// .modal {
+//     background-color: rgba(0, 0, 0, 0.5);
+//     overflow: auto;
+// }
+// .position{
+//     text-align: center;
+// }
+// .required{
+//     color: #fd021b;
+//     margin-top: 10px;
+//     font-size: 12px;
+
+// }
+// button.close{
+//     font-size: 30px !important;
+//     border: none;
+//     background: none;
+//     color: #000000;
+// }
+// .card .card-body .card-title {
+//     color: #000000;
+//     text-transform: inherit;
+//     font-weight: normal;
+//     margin-bottom: 0.75rem;
+//     font-size: 20px;
+// }
+// @media screen and (min-width: 768px) {
+//     body {
+//         margin: calc(var(--header-height) + 1rem) 0 0 0;
+//         padding-left: calc(var(--nav-width) + 2rem);
+//     }
+
+//     .header {
+//         height: 60px;
+//         padding: 0 2rem 0 calc(var(--nav-width) + 2rem);
+//     }
+
+//     .header_img {
+//         width: 40px;
+//         height: 40px;
+//     }
+
+//     .header_img img {
+//         width: 45px;
+//     }
+
+//     .l-navbar {
+//         left: 0;
+//         padding: 0.5rem 0 0 0;
+//     }
+
+//     .welcomescreen-data .show {
+//         width: 100%;
+//     }
+//     .sidebar .navigation li ul li a {
+//         padding: 9px 15px;
+//         border: 0;
+//     }
+//     .sidebar .navigation li ul li i {
+//         font-size: 24px !important;
+//     }
+//     // dropdown
+//     .dropdown select.form-control{
+//         appearance: menulist;
+//     -webkit-appearance: menulist;
+//     }
+//     // font size
+//     .fs-10 {
+//         p,span, .otherClasses {
+//           font-size: 10px;
+//         }
+//       }
+//     .fs-11 {
+//         p,span, .otherClasses {
+//           font-size: 11px;
+//         }
+//       }
+//       .fs-12 {
+//         p,span, .otherClasses {
+//           font-size: 12px;
+//         }
+//       }
+//       .fs-13 {
+//         p,span, .otherClasses {
+//           font-size: 13px;
+//         }
+//       }
+//       .fs-14 {
+//         p,span, .otherClasses {
+//           font-size: 14px;
+//         }
+//     }
+//     .fs-20 {
+//         p,span, .otherClasses {
+//           font-size: 20px;
+//         }
+//     }
+//     .fs-30 {
+//         p,span, .otherClasses {
+//           font-size: 30px;
+//         }
+//     }
+ 
+// }
+
+// .custom-label {
+//     color: #000;
+//     margin-top: 15px;
+//     font-size: 15px;
+//     font-family: "Roboto", sans-serif;
+//     font-weight: 600;
+//     letter-spacing: 1px;
+// }
+
+// .textDesign{
+//     color:#acb19f;
+//     font-size: 11px;
+// }
+// .custom-file img {
+//     border: 1px solid #eee;
+//     margin-top: 10px;
+// }
+// .screens .modal-dialog {
+//     max-width: 500px;
+//     margin: 1.75rem auto;
+// }
+// .add_popup{
+//     max-width: 600px;
+// }
+// label.upload_btn i.bx {
+//     font-size: 35px;
+// }
+// label.upload_btn{
+//     position: absolute;
+//     right: 80px;
+//     top: 0;
+// }
+.screenColor{
+    color: #000000;
+    background-color: #43ea80;
+    padding: 5px;
+    border-radius: 0.25rem 0.25rem 0px 0px;
+    font-weight: 600;
+}
+i.bx.bx-edit {
+    font-size: 20px;
+}
+i.bx.bx-trash {
+    font-size: 20px;
+}
+.delete{
+    background-color: #fd021b !important;
+}
+.card {
+    background: #ffffff;
+    border: 0;
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+    box-shadow: 0 1px 20px 0px rgba(0, 0, 0, 20%);
+}
+textarea.form-control {
+    padding: 0px 10px;
+    
+}
+@media screen and (max-width: 992px) {
+
+    .screens img.card-img-top{
+    
+      display: block;
+    
+      width: auto;
+    
+      margin:  unset;
+    
+    }
+    
+    }
+    
+    @media screen and (max-width: 400px) {
+    
+    
+    
+    .screens img.card-img-top{
+    
+      display: block;
+    
+      width: auto;
+    
+      height: 175px;
+    
+      margin:  unset;
+    
+    }
+    
+    }

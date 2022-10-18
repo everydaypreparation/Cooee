@@ -1,0 +1,25 @@
+<div class="card-body">
+    <div class="heading">
+      <h5 class="heading_title mb-0">Reject-User-Refund</h5>
+    </div>
+    <hr>
+    <mat-card>
+      <form [formGroup]="userRefundForm">
+        <div class="row">
+          <div class="col">
+            <div class="form-group pb-2 mb-3">
+                <label>Reason<span class="required">*</span></label>
+                <input  type="text" class="form-control" formControlName="reason"
+                [ngClass]="{ 'is-invalid': submitted && f['reason'].errors }" />
+            <div *ngIf="submitted && f['reason'].errors" class="invalid-feedback">
+                <div *ngIf="f['reason'].errors?.['required'] || f['reason'].errors?.['whitespace']">Reason is required</div>
+            </div>
+  
+            </div>
+          </div>
+        </div>
+        <button mat-button color="white" class="btn btn-dark px-3" (click)="submit()">Submit</button>&nbsp;&nbsp;
+        <button mat-button color="white" class="btn btn-dark px-3" (click)="closeDialog()">Cancel</button>
+      </form>
+    </mat-card>
+  </div>

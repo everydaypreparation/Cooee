@@ -1,0 +1,12 @@
+table {
+    width: 100%;
+  }
+  .lni.lni-chevron{
+    font-weight: 600;
+}
+@media only screen and (max-width: 767px) {
+  table {
+    display: block;
+  }
+
+}

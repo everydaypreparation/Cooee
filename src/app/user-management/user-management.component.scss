@@ -1,0 +1,18 @@
+table {
+    width: 100%;
+  }
+.form-control{
+  width: auto;
+  appearance: auto;
+  -webkit-appearance: auto;
+}
+.card{
+  overflow: auto;
+}
+
+@media only screen and (max-width: 767px) {
+  table {
+    display: block;
+  }
+
+}

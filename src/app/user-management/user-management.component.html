@@ -1,0 +1,106 @@
+<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+    <div class="breadcrumb-title pe-3">User-Management</div>
+    <div class="ps-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0 p-0">
+                <li class="breadcrumb-item"><a href="#" (click)="$event.preventDefault()"><i
+                            class="bx bx-home-alt"></i></a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">User-Management</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<div class="card radius-10">
+    <div class="card-body">
+        <div class="heading d-flex justify-content-between align-items-center flex-wrap">
+            <h5 class="heading_title">User-Management</h5>
+            <div>
+                <select class="single-select form-control mt-2" (change)="kycStatusChange()" [(ngModel)]="selectedValue">
+                    <option value="" disabled selected>Choose kyc Status</option>
+                    <option *ngFor='let v of userTypeData' [ngValue]="v.id">{{ v.value }}</option>
+                </select>
+                
+            </div>
+            <div>
+                <mat-form-field appearance="standard">
+                    <mat-label>Search By Name,Email</mat-label>
+                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search" #input>
+                </mat-form-field>
+            </div>
+        </div>
+        <hr>
+        <table mat-table [dataSource]="dataSource" class="table-responsive" >
+            <ng-container matColumnDef="sno">
+                <th mat-header-cell *matHeaderCellDef>S.No.</th>
+                <td mat-cell *matCellDef="let order; let i = index;">
+                    <p class="text-truncate">{{ (i+1) + (paginator.pageIndex * paginator.pageSize) }}</p>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="cooeeid">
+                <th mat-header-cell *matHeaderCellDef> CooeeId </th>
+                <td mat-cell *matCellDef="let element"> {{element.cooeeId}} </td>
+            </ng-container>
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef> Email </th>
+                <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+            </ng-container>
+            <ng-container matColumnDef="did">
+                <th mat-header-cell *matHeaderCellDef> DID Number </th>
+                <td mat-cell *matCellDef="let element"> {{element.did==null?'N/A' :'' ||element.did}} </td>
+            </ng-container>
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef> kyc Status </th>
+                <td mat-cell *matCellDef="let element" >
+                    <div  *ngIf="element.approved==0"  class="badge rounded-pill bg-light-primary text-primary w-100">N/A</div>
+                    <div  *ngIf="element.approved==1"  class="badge rounded-pill bg-light-warning text-warning w-100">Pending</div>
+                    <div  *ngIf="element.approved==2"  class="badge rounded-pill bg-light-success text-success w-100">Approve</div>
+                    <div  *ngIf="element.approved==3"  class="badge rounded-pill bg-light-danger text-danger w-100">Reject</div>
+                    <!-- {{element.approved==0?'N/A' :'' ||element.approved==1?'Pending' :'' ||element.approved==2?'Approve'
+                    :''||element.approved==3?'Reject' :''}} -->
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef> Action </th>
+                <td mat-cell *matCellDef="let element" style="
+        padding-left: 1%;">
+                    <span [hidden]="element.approved==0||element.approved==null" class="view-btn" mat-button
+                        (click)="userDetails(element.id)" title="">
+                        <mat-icon>remove_red_eye</mat-icon>
+                    </span>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="delete">
+                <th mat-header-cell *matHeaderCellDef> Delete </th>
+                <td mat-cell *matCellDef="let element" style="
+        padding-left: 1%;">
+                    <span class="view-btn" mat-button (click)="userDelete(element.id,element.email)" title="">
+                        <mat-icon>delete</mat-icon>
+                    </span>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="view">
+                <th mat-header-cell *matHeaderCellDef>View Subscription</th>
+                <td mat-cell *matCellDef="let element" style="
+        padding-left: 5%;">
+                    <span class="view-btn" mat-button (click)="viewSubscriptionplan(element.id)">
+                        <mat-icon>remove_red_eye</mat-icon>
+                    </span>
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            <!-- <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell nodata1"  *ngIf="resultsLength==0" colspan="4">No Data Available</td>
+    </tr> -->
+        </table>
+        <mat-paginator [length]="resultsLength" [pageSize]="selection.pageSize" [pageSizeOptions]="[10, 25,50, 100]"
+        (page)="getPaginatorData($event)">
+    </mat-paginator>
+    </div>
+</div>

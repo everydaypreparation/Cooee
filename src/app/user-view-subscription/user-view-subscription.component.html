@@ -1,0 +1,78 @@
+<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+    <div class="breadcrumb-title pe-3">User-View-Subscription</div>
+    <div class="ps-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0 p-0">
+                <li class="breadcrumb-item"><a href="#" (click)="$event.preventDefault()"><i
+                            class="bx bx-home-alt"></i></a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">User-View-Subscription</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<div class="card radius-10">
+    <div class="card-body">
+        <div class="heading d-flex align-items-center">
+            <i (click)="goBack()" class="lni lni-chevron-left text-dark p-2 me-2"></i> <h5 class="heading_title mb-0">User-View-Subscription</h5>
+        </div>
+        <hr>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table-responsive">
+            <ng-container matColumnDef="sno">
+                <th mat-header-cell *matHeaderCellDef> S.No </th>
+                <td mat-cell *matCellDef="let order; let i = index;">
+                    <tr>{{ (i+1) + (paginator.pageIndex * paginator.pageSize) }}</tr>
+                </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="title">
+                <th mat-header-cell *matHeaderCellDef> Title </th>
+                <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="amount">
+                <th mat-header-cell *matHeaderCellDef> Amount </th>
+                <td mat-cell *matCellDef="let element"> {{element.totalAmount}} </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="planValidity">
+                <th mat-header-cell *matHeaderCellDef> PlanValidity </th>
+                <td mat-cell *matCellDef="let element"> {{element.planValidity}} </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="incomingCall">
+                <th mat-header-cell *matHeaderCellDef> IncomingCall </th>
+                <td mat-cell *matCellDef="let element"> {{element.incomingCall}}  &nbsp;<span  *ngIf="element.incomingCall!='Unlimited'">SMS</span> </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="incomingSms">
+                <th mat-header-cell *matHeaderCellDef> IncomingSms </th>
+                <td mat-cell *matCellDef="let element"> {{element.incomingSms}}  &nbsp;<span   *ngIf="element.incomingSms!='Unlimited'">SMS</span> </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="outgoingCall">
+                <th mat-header-cell *matHeaderCellDef> OutgoingCall </th>
+                <td mat-cell *matCellDef="let element"> {{element.outgoingCall}}  &nbsp;<span  *ngIf="element.outgoingCall!='Unlimited'">SMS</span> </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="outgoingSms">
+                <th mat-header-cell *matHeaderCellDef> OutgoingSms </th>
+                <td  mat-cell *matCellDef="let element" > {{element.outgoingSms}} &nbsp;<span   *ngIf="element.outgoingSms!='Unlimited'">SMS</span> </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="planStatus">
+                <th mat-header-cell *matHeaderCellDef> PlanStatus </th>
+                <td mat-cell *matCellDef="let element" >
+                    <div  *ngIf="element.status==false"  class="badge rounded-pill bg-light-danger text-danger w-40">Expired</div>
+                    <div  *ngIf="element.status==true" class="badge rounded-pill bg-light-success text-success w-40">Active</div>
+                    <!-- {{element.planStatus==true?'Active':'Expired'}}  -->
+                    </td>
+            </ng-container>
+    
+    
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[10, 25,50, 100]" aria-label="Select page of users"></mat-paginator>
+    </div>
+</div>

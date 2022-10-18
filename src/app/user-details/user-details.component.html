@@ -1,0 +1,151 @@
+<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+    <div class="breadcrumb-title pe-3">User-Details</div>
+    <div class="ps-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0 p-0">
+                <li class="breadcrumb-item"><a href="#" (click)="$event.preventDefault()"><i
+                            class="bx bx-home-alt"></i></a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">User-Details</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<div class="card radius-10">
+    <div class="card-body">
+        <div class="heading d-flex align-items-center">
+            <i (click)="goBack()" class="lni lni-chevron-left text-dark p-2 me-2"></i> <h5 class="heading_title mb-0">User-Details</h5>
+        </div>
+        <hr>
+        <mat-card>
+            <form [formGroup]="userDetailForm">
+               <div class="row">
+                  <div class="col-xs-9 col-sm-9 col-xl-9">
+                     <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-xl-6 mb-2">
+                           <div class="form-group">
+                              <label>First name</label>
+                              <input type="text" disabled formControlName="firstName" class="form-control" />
+                           </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-xl-6 mb-2">
+                           <div class="form-group">
+                              <label>Last name</label>
+                              <input type="text" disabled formControlName="lastName" class="form-control" />
+                           </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-xl-6 mb-2">
+                           <div class="form-group">
+                              <label>Date of birth</label>
+                              <input type="text" disabled formControlName="date" class="form-control" />
+                           </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-xl-6 mb-2">
+                           <div class="form-group">
+                              <label>Country</label>
+                              <input type="text" disabled formControlName="country" class="form-control" />
+                           </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-xl-6 mb-2">
+                           <div class="form-group" [hidden]="isPorting==false" >
+                              <label>Current service provider</label>
+                              <input type="text" disabled formControlName="currentServiceProvider" class="form-control" />
+                           </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-xl-6 mb-2">
+                           <div class="form-group" [hidden]="isPorting==false">
+                              <label>Current service provider account.no</label>
+                              <input type="text" disabled formControlName="optusAccountNumber" class="form-control" />
+                           </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-xl-6 mb-2">
+                           <div class="form-group">
+                              <label>Address</label>
+                              <input type="text" disabled formControlName="address" class="form-control" />
+                           </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-xl-6 mb-2">
+                           <div class="form-group">
+                              <label>City</label>
+                              <input type="text" disabled formControlName="city" class="form-control" />
+                           </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-xl-6 mb-2">
+                           <div class="form-group">
+                              <label>State/region</label>
+                              <input type="text" disabled formControlName="state" class="form-control" />
+                           </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-xl-6 mb-2">
+                           <div class="form-group">
+                              <label>Postal code</label>
+                              <input type="text" disabled formControlName="postalCode" class="form-control" />
+                           </div>
+                        </div>
+                        
+                        <div class="col-xs-6 col-sm-6 col-xl-6 mb-2">
+                           <div class="form-group">
+                              <label>CooeeId</label>
+                              <input type="text" disabled formControlName="cooeeId" class="form-control" />
+                           </div>
+                        </div>
+      
+                        <div class="col-xs-6 col-sm-6 col-xl-6 mb-2">
+                           <div class="form-group">
+                              <label>StipeCustomerId</label>
+                              <input type="text" disabled formControlName="stipeCustomerId" class="form-control" />
+                           </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-xl-6 mb-2">
+                           <div class="form-group">
+                              <label>SocialId</label>
+                              <input type="text" disabled formControlName="socialId" class="form-control" />
+                           </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-xl-6 mb-2">
+                           <div class="form-group">
+                              <label>DID</label>
+                              <input type="text" disabled formControlName="did" class="form-control" />
+                           </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-xl-6 mb-2">
+                           <div class="form-group">
+                              <label>OTP</label>
+                              <input type="text" disabled formControlName="otp" class="form-control" />
+                           </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-xl-6 mb-2">
+                           <div class="form-group">
+                              <label>IdCardType</label>
+                              <input type="text" disabled formControlName="idCardType" class="form-control" />
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-xs-3 col-sm-3 col-xl-3">
+                     <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-xl-12 mb-2">
+                           <div class="form-group" *ngIf="idCardFront" >
+                              <label  >Picture of ID card
+                              </label><br>
+                              <img   src="{{idCardFront}}" style="width: 200px;height: 200px;">
+                           </div>
+                          
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-xl-12">
+                           <div class="form-group" *ngIf="idCardSelfie">
+                              <label>Selfie with ID card
+                              </label><br>
+                              <img src="{{idCardSelfie}}" style="width: 200px;height: 200px;">
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <button mat-button color="white" class="btn btn-dark px-5 mt-2" (click)="approve()" [hidden]="approved==2">Approve</button>&nbsp;
+               <button mat-button color="white" class="btn btn-dark px-5 mt-2" (click)="reject()" [hidden]="approved==3" >Reject</button>&nbsp;
+               <button mat-button color="white"  class="btn btn-dark px-5 mt-2" (click)="changePassword()" >Change Password</button>
+            </form>
+         </mat-card>
+    </div>
+</div>

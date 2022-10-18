@@ -1,0 +1,58 @@
+<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+    <div class="breadcrumb-title pe-3">Subscription Management</div>
+    <div class="ps-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0 p-0">
+                <li class="breadcrumb-item"><a href="#" (click)="$event.preventDefault()"><i
+                            class="bx bx-home-alt"></i></a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">View Subscription</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<div class="card radius-10">
+    <div class="card-body">
+        <div class="heading">
+            <h5 class="heading_title mb-0">View Subscription</h5>
+        </div>
+        <hr>
+        <mat-card>
+            <div class="row">
+                <div class="col-12 col-sm-6 col-md-6 col-xs-12 col-lg-6 col-xl-4" *ngFor="let array of  data;">
+                    <div class="card" [style.background] = "array.status ? 'white' : '#80808063'">
+                        <div class="card-body">
+                            <div style="float:right;">
+                                <span class="view-btn" mat-button (click)="update(array.id)">
+                                    <mat-icon>edit</mat-icon>
+                                </span>
+                                <span class="view-btn" mat-button (click)="delete(array.id)">
+                                    <mat-icon>delete</mat-icon>
+                                </span>
+                                <div style="float: inherit;">
+                                    <mat-slide-toggle [(ngModel)]="array.status" (change)="changeToggle(array.status,array.id)">
+                                    </mat-slide-toggle>
+                                </div>
+                            </div>
+    
+                            <h3 class="card-main-title">{{array.title}} ($<span>{{array.totalAmount}}</span>)<span
+                                    class="strk text-muted">&nbsp;<s>$<span>{{array.amount}}</span></s></span></h3>
+                            <h4 class="card-sub-title">Up Front for 12 months(you'll save
+                                $<span>{{array.discount}}</span>)</h4>
+                            <div class="card-text">
+                                <div class="list" *ngFor="let day of array.subscriptionPlanDescription">
+                                    <div class="list-item">
+                                        <div class="img-bg" style="background-image: url('assets/images/Background.png')">
+                                            <img src="assets/images/icon.png"></div>
+                                        <div class="text">{{day.description}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+        </mat-card>
+    </div>
+</div>

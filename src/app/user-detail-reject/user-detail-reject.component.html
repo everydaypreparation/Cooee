@@ -1,0 +1,36 @@
+<div class="card-body">
+  <div class="heading">
+    <h5 class="heading_title mb-0">Reject-User</h5>
+  </div>
+  <hr>
+  <mat-card>
+    <form [formGroup]="userRejectForm">
+      <div class="row">
+        <div class="col">
+          <div class="form-group pb-2">
+            <div formArrayName='descriptions' fxLayout="column" fxLayoutGap="10px">
+              <label>Descriptions<span class="required">*</span></label>
+              <div class="mb-3" *ngFor="let user of userRejectForm.get('descriptions')['controls']; let i = index"
+                fxLayout="row" fxLayoutGap="10px">
+                <div class="d-flex">
+                  <input class="form-control mb-1 me-2" type="text" [formControlName]="i">
+                  <button (click)="removeUser(i)" mat-button color="white" class="btn btn-dark px-3"
+                    [hidden]="userRejectForm.controls.descriptions.controls.length === 1">-</button>
+                </div>
+                <div *ngIf="!userRejectForm.get('descriptions')['controls'][i].valid && 
+                        userRejectForm.get('descriptions')['controls'][i].errors?.required">
+                  <p>This field is required</p>
+                </div>
+
+              </div>
+              <button mat-button color="white" class="btn btn-dark px-3" (click)="addUser()">+</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <button mat-button color="white" class="btn btn-dark px-3" (click)="submit()">Submit</button>&nbsp;&nbsp;
+      <button mat-button color="white" class="btn btn-dark px-3" (click)="closeDialog()">Cancel</button>
+    </form>
+  </mat-card>
+</div>

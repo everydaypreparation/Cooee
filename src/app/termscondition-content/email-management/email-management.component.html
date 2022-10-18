@@ -1,0 +1,55 @@
+<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+    <div class="breadcrumb-title pe-3">Terms & Conditions Content Management</div>
+    <div class="ps-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0 p-0">
+                <li class="breadcrumb-item"><a href="#" (click)="$event.preventDefault()"><i
+                            class="bx bx-home-alt"></i></a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Add Email</li>
+
+            </ol>
+        </nav>
+    </div>
+</div>
+<div class="card radius-10">
+    <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="heading">
+                <h5 class="heading_title mb-0">Add Email</h5>
+            </div>
+            <div class="src" style="color: rgb(0, 0, 0);font-size: 20px;font-weight: 500; margin-right: 20px;">
+                <select class="form-control" (change)="kycStatusChange()" [(ngModel)]="selectedValue" >
+                    <option value="" disabled selected>Choose Email</option>
+                    <option *ngFor='let v of emailTypeData' [ngValue]="v.id">{{ v.value }}</option>
+                </select>
+            </div>
+        </div>
+        <hr>
+        <mat-card *ngIf="isShown">
+            <form [formGroup]="addemailForm">
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group pb-2">
+                            <label>Email<span class="required">*</span></label>
+                            <textarea class="form-control" style="width:100%;border-radius: 5px 5px 5px 5px;" rows="5"
+                                formControlName="emailBody"
+                                [ngClass]="{ 'is-invalid': submitted && f['emailBody'].errors }"></textarea>
+                            <div *ngIf="submitted && f['emailBody'].errors" class="invalid-feedback">
+                                <div *ngIf="f['emailBody'].errors['required']">Email is required</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button button color="white" class="btn btn-dark px-5" *ngIf="isShown"
+                    (click)="submit()">Submit</button>
+            </form>
+
+        </mat-card>
+        <mat-card *ngIf="!isShown">
+            <div class="hiddencard">
+                Please Choose Email
+            </div>
+        </mat-card>
+    </div>
+</div>

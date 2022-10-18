@@ -1,0 +1,88 @@
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 255px;
+  }
+  .text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #000;
+}
+.form-control{
+  width: auto;
+}
+.heading{
+  padding: 18px;
+}
+.lni.lni-chevron{
+  font-weight: 600;
+}
+// .mat-form-field-infix {
+//   display: block;
+//   position: relative;
+//   flex: auto;
+//   min-width: 0;
+//   width: 227px;
+// }
+body.mat-typography {
+  min-width: 992px;
+}
+
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 255px;
+  }
+  .text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #000;
+}
+.form-control{
+  width: auto;
+}
+.heading{
+  padding: 18px;
+}
+// .mat-form-field-infix {
+//   display: block;
+//   position: relative;
+//   flex: auto;
+//   min-width: 0;
+//   width: 227px;
+// }
+.invalid-feedback {
+    display: none;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 102%;
+    color: #eb1b0c;
+  }
+  .hiddencard{
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+  }
+  .example-chip-list {
+  width: 100%;
+}
+.mat-card {
+  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  display: block;
+  position: relative;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.mat-chip {
+font-size: 12px;
+font-weight: 500;
+}

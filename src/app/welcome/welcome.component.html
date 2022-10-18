@@ -1,0 +1,249 @@
+<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+    <div class="breadcrumb-title pe-3">Welcome Screens</div>
+    <div class="ps-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0 p-0">
+                <li class="breadcrumb-item"><a href="#" (click)="$event.preventDefault()"><i
+                            class="bx bx-home-alt"></i></a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Welcome Screens</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<div class="card radius-10">
+    <div class="card-body">
+        <div class="heading">
+            <h5 class="heading_title">Welcome Screens</h5>
+        </div>
+        <hr>
+        <div class="welcomescreen-data text-right">
+            <div class="container">
+                <div class="row mb-5 mt-4">
+                    <div class="col-md-12 d-flex justify-content-end mobileheader">
+                        <button type="button" class="btn btn-dark px-5 me-2" data-toggle="modal" data-target="#myModal1"
+                            (click)="openPopup()">Add welcome
+                            data <i class="bx bx-plus-circle"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal" id="myModal1" role="dialog" [ngStyle]="{'display':displayStyle}">
+                <div class="modal-dialog add_popup">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <h4 class="modal-title">Add Welcome Data</h4>
+                            <button type="button" class="close" data-dismiss="modal"
+                                (click)="closePopup()">&times;</button>
+                        </div>
+
+                        <div class="modal-body">
+                            <div class="welcome-form">
+                                <form [formGroup]="welcomeForm">
+                                    <div class="form-outline input-group">
+                                        <label class="form-label text-left" for="image">Add Image<span
+                                                class="required">*</span></label>
+                                        <div class="custom-file text-left">
+                                            <input type="file" accept=".png, .jpg, .jpeg" #inputFile name="inputFile"
+                                                id="inputFile" (change)="onSelectDoc($event)"
+                                                aria-describedby="inputGroupFileAddon01">
+                                            <span class="required"
+                                                *ngIf="f['docfile'].errors && f['docfile'].errors['required'] && isDoc">This
+                                                field is required</span>
+                                        </div>
+                                        <div class="textDesign">(Only JPG/JPEG, PNG files are
+                                            allowed &
+                                            file should be below 5MB)</div>
+                                    </div>
+                                    <div class="form-outline mb-4 text-left">
+                                        <label style="all: unset; margin-bottom: 10px;">
+                                            <span class="custom-label text-left">Add Title<span
+                                                    class="required">*</span> </span>
+                                            <span
+                                                [ngStyle]="{ 'color': this.welcomeForm.value.title_font_color, 'font-size': this.welcomeForm.value.title_font_size + 'px', 'font-style': fonttitleStyle, 'font-weight': fonttitleWeight}"></span></label>
+                                        <input type="text" formControlName="title" id="" class="form-control"
+                                            placeholder="Add title"
+                                            [ngClass]="{ 'is-invalid': submitted && f['title'].errors }" />
+                                        <div *ngIf="submitted && f['title'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['title'].errors['required']">This
+                                                field
+                                                is required</div>
+                                        </div>
+
+
+                                    </div>
+
+                                    <div class="form-outline mb-4 text-left ">
+                                        <label style="all: unset; margin-bottom: 10px;">
+                                            <span class="custom-label text-left">Add Description<span
+                                                    class="required">*</span> </span>
+                                            <span class="break"
+                                                [ngStyle]="{ 'color': this.welcomeForm.value.descriptions_font_color, 'font-size': this.welcomeForm.value.descriptions_font_size + 'px', 'font-style': fontDescStyle, 'font-weight': fontDescWeight}"></span></label>
+                                        <textarea class="form-control" formControlName="descriptions" id="" rows="3"
+                                            [ngClass]="{ 'is-invalid': submitted && f['descriptions'].errors }"></textarea>
+                                        <div *ngIf="submitted && f['descriptions'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['descriptions'].errors['required']">This
+                                                field
+                                                is required</div>
+                                        </div>
+
+
+                                    </div>
+                                    <button class="btn btn-dark px-5" (click)="addWelcomeData()">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="screens">
+            <div class="container my-4">
+                <div class="row">
+                    <div class="col">
+                        <div class="container">
+                            <div slickContainer #slickController="slick" [slickConfig]="config">
+                                <ng-container *ngIf="slickController.initialize">
+                                    <div slickItem *ngFor="let slide of styleData; let i = index ">
+                                        <div class="card welcomescreen-slide">
+                                            <div class="d-flex justify-content-between align-items-center screenColor">
+                                                <div>Screen {{i+1}}</div>
+                                                <div class="d-flex m-2">
+                                                    <i class="fadeIn animated bx bx-edit"
+                                                        (click)="updateopenPopup(slide,i)"></i>
+                                                    <i class="fadeIn animated bx bx-trash"
+                                                        (click)="openDeletePopup(slide.id,i)"></i>
+                                                </div>
+                                            </div>
+                                            <img [src]="slide.imgUrl" class="card-img-top">
+                                            <div class="card-body">
+                                                <div class="card-title position"
+                                                    [ngStyle]="{'color': styleData[i].textColor, 'font-size': styleData[i].textSize + 'px', 'font-style': styleData[i].textStyle,'font-weight': styleData[i].textStyle}">
+                                                    {{slide.title}}</div>
+                                                <div class="card-text position"
+                                                    [ngStyle]="{'color': styleData[i].descColor, 'font-size': styleData[i].descSize + 'px', 'font-style': styleData[i].descStyle,'font-weight': styleData[i].descStyle}">
+                                                    {{slide.descriptions}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ng-container>
+                            </div>
+                            <div class="text-center">
+                                <button class="btn btn-dark px-5 me-2" (click)="slickController.prev()">Previous</button>
+                                <button class="btn btn-dark px-5" (click)="slickController.next()">Next</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal" id="myModal" role="dialog" [ngStyle]="{'display':displayStyles}">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+                                <h4 class="modal-title">Update Welcome Data</h4>
+                                <button type="button" class="close" data-dismiss="modal"
+                                    (click)="updateclosePopup()">&times;</button>
+                            </div>
+
+                            <div class="modal-body">
+                                <div class="welcome-form">
+                                    <form [formGroup]="welcomeForm">
+                                        <div class="form-outline input-group">
+                                            <div class="custom-file welcome_img text-center">
+                                                <img id="pic" [src]="docfile" [alt]="1" width="300px" />
+
+                                                <label for="inputGroupFile01" class="upload_btn"> <i
+                                                        class="fadeIn animated bx bx-message-square-edit"></i></label>
+                                                <input type="file" accept=".png, .jpg, .jpeg" #inputFile
+                                                    name="inputFile" (change)="onSelectDoc($event)"
+                                                    id="inputGroupFile01" aria-describedby="inputGroupFileAddon01"
+                                                    style="display:none;">
+                                            </div>
+                                        </div>
+                                        <div class="form-outline mb-4 text-left">
+                                            <label class="form-label text-left" for="inputFile">Update
+                                                Title
+                                                <span class="break"
+                                                    [ngStyle]="{ 'color': this.welcomeForm.value.title_font_color, 'font-size': this.welcomeForm.value.title_font_size + 'px', 'font-style': fonttitleStyle, 'font-weight': fonttitleWeight}"></span></label>
+                                            <input type="text" formControlName="title" id="" class="form-control"
+                                                placeholder="Add title"
+                                                [ngClass]="{ 'is-invalid': submitted && f['title'].errors }" />
+                                            <div *ngIf="submitted && f['title'].errors" class="invalid-feedback">
+                                                <div *ngIf="f['title'].errors['required']">This
+                                                    field
+                                                    is required</div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-outline mb-4 text-left">
+                                            <label class="form-label" for="">Update Description
+                                                <span class="break"
+                                                    [ngStyle]="{ 'color': this.welcomeForm.value.descriptions_font_color, 'font-size': this.welcomeForm.value.descriptions_font_size + 'px', 'font-style': fontDescStyle, 'font-weight': fontDescWeight}"></span></label>
+                                            <textarea class="form-control" formControlName="descriptions" id="" rows="3"
+                                                [ngClass]="{ 'is-invalid': submitted && f['descriptions'].errors }"></textarea>
+                                            <div *ngIf="submitted && f['descriptions'].errors" class="invalid-feedback">
+                                                <div *ngIf="f['descriptions'].errors['required']">This
+                                                    field
+                                                    is required</div>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-dark px-5" (click)="updateWelcomeData()">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="controls-top">
+                    <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i
+                            class="fa fa-chevron-left"></i></a>
+                    <a class="btn-floating" href="#multi-item-example" data-slide="next"><i
+                            class="fa fa-chevron-right"></i></a>
+                </div>
+
+                <ol class="carousel-indicators">
+                    <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
+                    <li data-target="#multi-item-example" data-slide-to="1"></li>
+                    <li data-target="#multi-item-example" data-slide-to="2"></li>
+                </ol>
+            </div>
+
+
+
+            <div class="modal" id="myModal1" role="dialog" [ngStyle]="{'display':popUp}">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title"><b>Delete Welcome Screen</b></h4>
+                            <button type="button" class="close" data-dismiss="modal"
+                                (click)="closeDeletePopup()">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <h4 class="chngcolor"><strong>Are you sure you want to delete</strong></h4>
+                            <p>All information associated to this welcome screen will be permanently
+                                deleted.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary " data-dismiss="modal"
+                                (click)="closeDeletePopup()">Close</button>
+                            <button type="button" class="btn btn-danger delete"
+                                (click)="deleteWelcomeData()">OK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+        <div *ngIf="result==0" class="text-center mt-3 nodata">No record found</div>
+    </div>
+</div>

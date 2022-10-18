@@ -1,0 +1,46 @@
+    <div class="card-body">
+        <div class="heading">
+            <h5 class="heading_title mb-0">Support Content Details</h5>
+        </div>
+        <hr>
+        <mat-card>
+            <form [formGroup]="supportemailForm">
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group pb-2">
+                            <label>Email</label>
+                            <input  type="text" disabled class="form-control" formControlName="email"
+                              />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group pb-2">
+                            <label>Title</label>
+                            <input disabled type="text" class="form-control" formControlName="title"
+                                />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mb-3">
+                        <div class="form-group pb-2">
+                            <label>Description<span class="required">*</span></label>
+                            <textarea  class="form-control"
+                                style="width:100%;border-radius: 5px 5px 5px 5px;" rows="5"
+                                [ngClass]="{ 'is-invalid': submitted && f['description'].errors }"       formControlName="description"></textarea>
+                                <div *ngIf="submitted && f['description'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['description'].errors?.['required'] || f['description'].errors?.['whitespace']">Description is required</div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+               
+                <button button color="white" class="btn btn-dark px-3"
+                    (click)="submit()">Submit</button>&nbsp;&nbsp;
+                <button button color="white" class="btn btn-dark px-3"
+                    (click)="closeDialog()">Cancel</button>
+            </form>
+        </mat-card>
+    </div>

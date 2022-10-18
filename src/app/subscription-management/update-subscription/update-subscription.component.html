@@ -1,0 +1,201 @@
+<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+    <div class="breadcrumb-title pe-3">Subscription Management</div>
+    <div class="ps-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0 p-0">
+                <li class="breadcrumb-item"><a href="#" (click)="$event.preventDefault()"><i
+                            class="bx bx-home-alt"></i></a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Update Subscription</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<div class="card radius-10">
+    <div class="card-body">
+        <div class="heading d-flex align-items-center">
+            <i (click)="goBack()" class="lni lni-chevron-left text-dark p-2 me-2"></i> <h5 class="heading_title mb-0">Update Subscription</h5>
+        </div>
+        <hr>
+        <mat-card>
+            <form [formGroup]="addsubscriptionForm">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Select Country<span class="required">*</span></label>
+                            <select placeholder="Country" class="form-control" [(ngModel)]="selectedItem"
+                                formControlName="country">
+                                <option value="AU"  selected>Australia</option>
+                                <option *ngFor="let country of allCountry" [value]="country.iso_code">
+                                    {{country.name}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label>Select Plan Validity<span class="required">*</span></label>
+                            <select placeholder="Select Plan Validate" class="form-control"
+                                [ngClass]="{ 'is-invalid': submitted && f['planValidity'].errors }" formControlName="planValidity">
+                                <option *ngFor="let plan of plans" [value]="plan.value">
+                                    {{plan.viewValue}}
+                                </option>
+                            </select>
+                            <div *ngIf="submitted && f['planValidity'].errors" class="invalid-feedback">
+                                <div *ngIf="f['planValidity'].errors['required']">Plan is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Title<span class="required">*</span></label>
+                            <input type="text"  class="form-control" formControlName="title" maxlength="25"
+                                [ngClass]="{ 'is-invalid': submitted && f['title'].errors }">
+                            <div *ngIf="submitted && f['title'].errors" class="invalid-feedback">
+                                <div *ngIf="f['title'].errors?.['required'] || f['title'].errors?.['whitespace']">Title is required</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Incoming SMS<span class="required">*</span></label>
+                            <div>
+                                <input type="radio" formControlName="incomingSms" value="Unlimited" 
+                                    [ngClass]="{ 'is-invalid': submitted && f['incomingSms'].errors }" />&nbsp;
+                                <label>Unlimited</label>
+                            </div>
+                            <div>
+                                <input type="radio"  formControlName="incomingSms" value="limited"
+                                    [ngClass]="{ 'is-invalid': submitted && f['incomingSms'].errors }" />&nbsp;
+                                <label>No.of Units</label>
+                            </div>
+                            <div *ngIf="submitted && f['incomingSms'].errors" class="invalid-feedbacks">
+                                <div *ngIf="f['incomingSms'].errors['required']">Incoming SMS is required</div>
+                            </div>
+                            <input type="text" (keypress)="numberOnly($event)" class="form-control" formControlName="incomingsmss"
+                                *ngIf="addsubscriptionForm.value.incomingSms!= 'Unlimited'">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Incoming Call<span class="required">*</span></label>
+                            <div>
+                                <input type="radio" formControlName="incomingCall" value="Unlimited"
+                                    [ngClass]="{ 'is-invalid': submitted && f['incomingCall'].errors }" />&nbsp;
+                                <label>Unlimited</label>
+                            </div>
+                            <div>
+                                <input type="radio"  formControlName="incomingCall"   value="limited" 
+                                    [ngClass]="{ 'is-invalid': submitted && f['incomingCall'].errors }" />&nbsp;
+                                <label>No.of Minutes </label>
+                            </div>
+                            <div *ngIf="submitted && f['incomingCall'].errors" class="invalid-feedbacks">
+                                <div *ngIf="f['incomingCall'].errors['required']">Incoming Call is required </div>
+                            </div>
+                            <input type="text" (keypress)="numberOnly($event)" class="form-control"  formControlName="incomingcalls"
+                                *ngIf="addsubscriptionForm.value.incomingCall != 'Unlimited'">
+                        </div>
+                    </div>
+                    
+                </div>
+                <br>
+    
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Outgoing SMS<span class="required">*</span></label>
+                            <div>
+                                <input type="radio" formControlName="outgoingSms" value="Unlimited"
+                                    [ngClass]="{ 'is-invalid': submitted && f['outgoingSms'].errors }" />&nbsp;
+                                <label>Unlimited</label>
+                            </div>
+                            <div>
+                                <input type="radio" formControlName="outgoingSms"  value="limited"
+                                    [ngClass]="{ 'is-invalid': submitted && f['outgoingSms'].errors }" />&nbsp;
+                                <label>No.of Units</label>
+                            </div>
+                            <div *ngIf="submitted && f['outgoingSms'].errors" class="invalid-feedbacks">
+                                <div *ngIf="f['outgoingSms'].errors['required']">Outgoing SMS is required</div>
+                            </div>
+                            <input type="text" (keypress)="numberOnly($event)" class="form-control"
+                            formControlName="outgoingsmss"
+                                *ngIf="addsubscriptionForm.value.outgoingSms!= 'Unlimited'">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Outgoing Call<span class="required">*</span></label>
+                            <div>
+                                <input type="radio" formControlName="outgoingCall" value="Unlimited"
+                                    [ngClass]="{ 'is-invalid': submitted && f['outgoingCall'].errors }" />&nbsp;
+                                <label>Unlimited</label>
+                            </div>
+                            <div>
+                                <input type="radio" formControlName="outgoingCall" value="limited"
+                                    [ngClass]="{ 'is-invalid': submitted && f['outgoingCall'].errors }" />&nbsp;
+                                <label>No.of Minutes</label>
+                            </div>
+                            <div *ngIf="submitted && f['outgoingCall'].errors" class="invalid-feedbacks">
+                                <div *ngIf="f['outgoingCall'].errors['required']">Outgoing Call is required</div>
+                            </div>
+                            <input type="text" (keypress)="numberOnly($event)" class="form-control"
+                                *ngIf="addsubscriptionForm.value.outgoingCall!= 'Unlimited'"
+                                formControlName="outgoingcalls">
+    
+                        </div>
+                    </div>
+                    <br>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Amount<span class="required">*</span>(USD)</label>
+                            <input type="text" (keypress)="decimalFilter($event)"  class="form-control" formControlName="amount"
+                                [ngClass]="{ 'is-invalid': submitted && f['amount'].errors }">
+                            <div *ngIf="submitted && f['amount'].errors" class="invalid-feedback">
+                                <div *ngIf="f['amount'].errors['required']">Amount is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Discount(USD)</label>
+                            <input type="text"  (keypress)="decimalFilter($event)"  class="form-control"
+                                formControlName="discount">
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="plan-description">
+                    <div class="description-content">
+                      <div class="form-group pb-2">
+                        <div formArrayName="subscriptionPlanDescription" fxLayout="column" fxLayoutGap="10px">
+                            <label>Descriptions</label>
+                            <div  *ngFor="let row of f['subscriptionPlanDescription']['controls']; let i = index"
+                            fxLayout="row" fxLayoutGap="10px">
+                              <div [formGroupName]="i" class="d-flex" style="margin-bottom: 10px;">
+                                <input type="text" class="form-control"   formControlName="description">
+                                <div *ngIf="!addsubscriptionForm.get('subscriptionPlanDescription')['controls'][i].valid && 
+                                addsubscriptionForm.get('subscriptionPlanDescription')['controls'][i].errors?.required">
+                  <p>This field is required</p>
+                                </div>
+                                <button type="button" class="ml-3 btn btn-dark px-3 ms-2"  (click)="removeItem(i)">-</button>
+                              </div>
+                            </div>
+                          </div>
+                          <button type="button" class="btn btn-dark px-3" (click)="addItem()">+</button>
+                      </div>
+                    </div>
+                  </div>
+                <button button color="white" class="btn btn-dark px-5"
+                    (click)="submit()">Update</button>
+            </form>
+        </mat-card>
+    </div>
+</div>

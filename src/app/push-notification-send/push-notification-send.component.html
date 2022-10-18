@@ -1,0 +1,69 @@
+<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+    <div class="breadcrumb-title pe-3">Send Notification</div>
+    <div class="ps-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0 p-0">
+                <li class="breadcrumb-item"><a href="#" (click)="$event.preventDefault()"><i
+                            class="bx bx-home-alt"></i></a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Push Notification</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<div class="card radius-10">
+    <div class="card-body">
+        <div class="heading d-flex align-items-center">
+            <i (click)="goBack()" class="lni lni-chevron-left text-dark p-2 me-2"></i> <h5 class="heading_title mb-0">Push Notification</h5>
+        </div>
+        <hr>
+        <mat-card>
+            <mat-card>
+                <div class="mb-2">
+                    <label>Email</label>
+                    <div class="border border-1 rounded border-dark p-2">
+                        <mat-form-field class="example-chip-list" appearance="fill">
+                            <mat-chip-list #chipList aria-label="Notification">
+                                <mat-chip *ngFor="let notification of allRecords">
+                                    {{notification.email}}
+                                    <mat-icon (click)="remove(notification.email)">cancel</mat-icon>
+                                </mat-chip>
+                            </mat-chip-list>
+                        </mat-form-field>
+                </div>
+                </div>
+                <form [formGroup]="addpushNotificationForm">
+                    <div class="row" >
+                        <div class="col">
+                            <div class="form-group pb-2">
+                                <label>Title<span class="required">*</span></label>
+                                <input  class="form-control"[ngClass]="{ 'is-invalid': submitted && f.title.errors }" 
+                                formControlName="title"
+                                >
+                                <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+                                    <div *ngIf="f.title.errors?.['required'] || f.title.errors?.['whitespace']">Title is required</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" >
+                        <div class="col mb-3">
+                            <div class="form-group pb-2">
+                                <label>Description<span class="required">*</span></label>
+                                <textarea  class="form-control" style="width:100%;border-radius: 5px 5px 5px 5px;" rows="5" formControlName="description"
+                                [ngClass]="{ 'is-invalid': submitted && f.description.errors }" ></textarea>
+                                <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+                                    <div *ngIf="f.description.errors?.['required'] || f.description.errors?.['whitespace']">Description is required</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button button color="white" class="btn btn-dark px-5"
+                    (click)="submit()"  >Submit</button>
+                </form>
+            </mat-card>
+           
+        </mat-card>
+      
+    </div>
+</div>
